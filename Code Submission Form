@@ -1,11 +1,11 @@
 <html>
 <head>
-<title>submit your solution</title>
-</head>
-<form action="submit.php" method="post">
-Enter your code below
+<title>your code is successfully submitted</title>
 
-<textarea name="thecode"rows="20" cols="150"></textarea>
-<br><br>
-<input type="submit" value="submit" name="submit"/>
+</head>
+<?php 
+$code=nl2br($_POST['thecode']);
+
+echo "your code is <br>$code";
+?>
 </html>
