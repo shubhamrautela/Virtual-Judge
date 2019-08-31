@@ -4,17 +4,19 @@
 </head>
 <form action="submit.php" method="post">
 Enter your code below.<br><br>
-<textarea name="thecode"rows="20" 
+<textarea name="code"rows="20" cols="150"></textarea>
 
-cols="150"></textarea>
 <br><br>
+
 <select name="Language" size="1">
   <option value="C">C</option>
   <option value="C++">C++</option>
   <option value="Java">Java</option>
   <option value="Python">Python</option>
 </select>
+
 <br><br>
+
 <input type="submit" value="submit" name="submit"/>
 
 <input type="reset">
