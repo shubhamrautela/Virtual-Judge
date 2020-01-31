@@ -1,0 +1,178 @@
+#include<stdio.h>
+#include<conio.h>
+#include<graphics.h>
+#include<dos.h>
+#include<math.h>
+
+int radius=25,theta=0,x=200,y=200,current=0,count=0;
+void go_right();
+void go_up();
+void go_down();
+void go_left();
+
+
+
+void drawPacman(){
+setcolor(GREEN);
+setfillstyle(1,GREEN);
+printf("%i",theta);
+if(theta==90){
+pieslice(x,y,0+theta,360,25);
+pieslice(x,y,0,40,25);
+}
+
+else
+pieslice(x,y,0+theta,315+theta,25);
+
+//circle(210+xinc-yinc,190,2);
+}
+
+
+void drawPacmanEating(){
+setcolor(GREEN);
+setfillstyle(1,GREEN);
+
+if(theta==90){
+pieslice(x,y,0+theta,360,25);
+pieslice(x,y,0,85,25);
+}
+else
+pieslice(x,y,0+theta,355,25);
+
+//circle(210+xinc-yinc,190,2);
+}
+void go_left(){
+
+}
+
+
+void go_up(){
+
+
+int first=0,second=0,x_inc=0,y_inc=0;
+//x=x_current,y=y_current;
+theta=90;
+
+while(1){
+  y_inc=3;
+  count++;
+  if(kbhit()){
+
+  first=getch();
+  second=getch();
+  if(first==0 && second==72)
+  go_up(x,y);
+  else if(first==0 && second==75)
+  go_left();
+  else if(first==0 && second==77)
+  go_right();
+  if(first==0 && second==80)
+  go_down();
+  else exit();
+
+  }
+//  printf("%i ",count);
+   x=x+x_inc;
+   y=y-y_inc;
+	if(count%2==0)
+	drawPacman();
+	else {drawPacmanEating();
+
+	}
+	  delay(400);
+	  clearviewport();
+
+  }
+}
+
+
+void go_down(){
+
+
+int first=0,second=0,x_inc=0,y_inc=0;
+//x=x_current,y=y_current;
+theta=90;
+
+while(1){
+  y_inc=-3;
+  count++;
+  if(kbhit()){
+
+  first=getch();
+  second=getch();
+  if(first==0 && second==72)
+  go_up();
+  else if(first==0 && second==75)
+  printf("left");
+  else if(first==0 && second==77)
+  go_right();
+  if(first==0 && second==80)
+  go_down();
+  else exit();
+
+  }
+//  printf("%i ",count);
+   x=x+x_inc;
+   y=y-y_inc;
+	if(count%2==0)
+	drawPacman();
+	else {drawPacmanEating();
+
+	}
+	  delay(400);
+	  clearviewport();
+
+  }
+}
+
+
+
+void go_right(){
+
+
+int first=0,second=0,x_inc=0,y_inc=0;
+//x=x_current,y=y_current;
+theta=(M_PI/180)*0;
+
+while(1){
+  x_inc=3;
+  count++;
+  if(kbhit()){
+
+  first=getch();
+  second=getch();
+  if(first==0 && second==72)
+  go_up(x,y);
+  else if(first==0 && second==75)
+  printf("left");
+  else if(first==0 && second==77)
+  go_right();
+  if(first==0 && second==80)
+  go_down();
+  else exit();
+
+  }
+//  printf("%i ",count);
+   x=x+x_inc;
+   y=y-y_inc;
+	if(count%2==0)
+	drawPacman();
+	else {drawPacmanEating();
+
+	}
+	  delay(400);
+	  clearviewport();
+
+  }
+}
+
+
+void main()
+{
+int a=DETECT,b, count=0,size=0,inc=5,first,second;
+initgraph(&a,&b,"");
+setfillstyle(1,YELLOW);
+go_right();
+
+getch();
+}
