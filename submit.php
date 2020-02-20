@@ -35,6 +35,7 @@
     shell_exec("javac A.java 2>$files[0]");
     
     $fp=fopen($files[0],"r");
+	if(filesize($files[0]))
     $error=nl2br(fread($fp,filesize($files[0])));
     fclose($fp);
     
@@ -43,6 +44,7 @@
     if(empty($error)){
         shell_exec("java A  >$files[2] 2>$files[1]");
         $fp=fopen($files[1],"r");
+	if(filesize($files[1]))
         $runtime_error=nl2br(fread($fp,filesize($files[1])));
         fclose($fp);
         
